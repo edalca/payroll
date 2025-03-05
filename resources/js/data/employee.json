@@ -1,0 +1,125 @@
+{
+    "label": "Empleado",
+    "name": "employee",
+    "fields": [
+        {
+            "type": "Tab Break",
+            "label": "Informacion General"
+        },
+        {
+            "fieldname": "code",
+            "label": "Código",
+            "required": true,
+            "type": "Text",
+            "listView": true
+        },
+        {
+            "fieldname": "type_document",
+            "label": "Tipo de Documento",
+            "type": "Select",
+            "options": [
+                "DPI",
+                "Pasaporte",
+                "Otro"
+            ],
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "id_number",
+            "label": "Número de Identificación",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "nit",
+            "label": "NIT",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "type": "Column Break"
+        },
+        {
+            "fieldname": "first_name",
+            "label": "Nombres",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "last_name",
+            "label": "Apellidos",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "birth_date",
+            "label": "Fecha de Nacimiento",
+            "type": "Date",
+            "required": true
+        },
+        {
+            "type":"Tab Break",
+            "label":"Direccion"
+        },
+        {
+            "fieldname": "nationality_id",
+            "label": "Nacionalidad",
+            "type": "Link",
+            "model": "country",
+            "params": {},
+            "required": true
+        },
+        {
+            "fieldname": "country_id",
+            "label": "Pais de Origen",
+            "type": "Link",
+            "model": "country",
+            "params": {},
+            "required": true
+        },
+        {
+            "fieldname": "sex",
+            "label": "Sexo",
+            "type": "Select",
+            "options": [
+                "Masculino",
+                "Femenino"
+            ],
+            "required": true
+        },
+        {
+            "fieldname": "marital_status_id",
+            "label": "Estado Civil",
+            "type": "Link",
+            "model": "marital_status",
+            "params": {},
+            "required": true
+        },
+        {
+            "type": "Column Break"
+        },
+        {
+            "fieldname": "address",
+            "label": "Dirección",
+            "type": "Text",
+            "required": true
+        },
+        {
+            "fieldname": "phone_number",
+            "label": "Número de Teléfono",
+            "type": "Text",
+            "required": false
+        },
+        {
+            "fieldname": "email",
+            "label": "Correo Electrónico",
+            "type": "Email",
+            "required": false
+        }
+    ]
+}

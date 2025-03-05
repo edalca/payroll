@@ -1,0 +1,13 @@
+{
+    "label": "Puestos de Trabajo",
+    "name": "job_titles",
+    "fields": [
+        {
+            "fieldname": "name",
+            "label": "Nombre",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        }
+    ]
+}

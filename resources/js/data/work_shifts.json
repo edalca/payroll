@@ -1,0 +1,34 @@
+{
+    "label": "Turnos de Trabajo",
+    "name": "work_shifts",
+    "fields": [
+        {
+            "fieldname": "code",
+            "label": "Código",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "name",
+            "label": "Nombre del Turno",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "start_time",
+            "label": "Hora de Inicio",
+            "type": "Time",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "end_time",
+            "label": "Hora de Fin",
+            "type": "Time",
+            "required": true,
+            "listView": true
+        }
+    ]
+}

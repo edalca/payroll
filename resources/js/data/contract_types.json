@@ -1,0 +1,27 @@
+{
+    "label": "Tipo de Contrato",
+    "name": "contract_types",
+    "fields": [
+        {
+            "fieldname": "code",
+            "label": "Código",
+            "required": true,
+            "type": "Text",
+            "listView": true
+        },
+        {
+            "fieldname": "name",
+            "label": "Nombre",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "description",
+            "label": "Descripción",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        }
+    ]
+}
