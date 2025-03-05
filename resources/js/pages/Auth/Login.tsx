@@ -1,20 +1,11 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 import GuestLayout from '@/layouts/guest';
-import {
-    Checkbox,
-    Input,
-    Button,
-    Card,
-    Text,
-    Caption1,
-    CardHeader,
-    Link as FluentLink,
-    MessageBar,
-    MessageBarBody,
-    Field
-} from '@fluentui/react-components';
 
+
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@headlessui/react';
+import { Button } from '@/components/ui/button';
 export default function Login({
     status,
     canResetPassword,
@@ -38,39 +29,13 @@ export default function Login({
     return (
         <GuestLayout>
             <Head title="Iniciar sesión" />
-            <Card
+            <div
             >
-                <CardHeader
-                    image={
-                        <img
-                            src="image/PaySoft_Logo.png"
-                            style={{
-                                maxWidth: "60px",
-                                maxHeight: "60px",
-                            }}
-                            alt="App Name Document"
-                        />
-                    }
-                    header={<Text weight="semibold" size={500}>Inicio de Sesion</Text>}
-                    description={
-                        <Caption1 >Ingreso al sistema</Caption1>
-                    }
 
-                />
-                {status && (
-                    <MessageBar
-                        intent="success"
-                        style={{ marginBottom: 16 }}
-                    >
-                        <MessageBarBody>{status}</MessageBarBody>
-                    </MessageBar>
-                )}
+
                 <form onSubmit={submit}>
-                    <Field
-                        label="Correo electrónico"
-                        required
-                        validationMessage={errors.email}
-                    >
+                    <div>
+                        <label>Correo electrónico</label>
                         <Input
                             id="email"
                             type="email"
@@ -81,12 +46,13 @@ export default function Login({
                             onChange={(e) =>
                                 setData('email', e.target.value)
                             } />
-                    </Field>
-                    <Field
-                        label="Contraseña"
-                        required
-                        validationMessage={errors.password}
+                    </div>
+
+
+                    <div
+
                     >
+                        <label htmlFor="">Contraseña</label>
                         <Input
                             id="password"
                             type="password"
@@ -97,15 +63,8 @@ export default function Login({
                                 setData('password', e.target.value)
                             }>
                         </Input>
-                    </Field>
-                    <Checkbox
-                        id="remember"
-                        label="Recordarme"
-                        checked={data.remember}
-                        onChange={(e, data) =>
-                            setData('remember', data.checked as boolean || false)
-                        }
-                    />
+                    </div>
+
                     <div
                         style={{
                             display: 'flex',
@@ -114,15 +73,8 @@ export default function Login({
                             gap: 8,
                         }}
                     >
-                        {canResetPassword && (
-                            <FluentLink
-                                href={route('password.request')}
-                            >
-                                ¿Olvidaste tu contraseña?
-                            </FluentLink>
-                        )}
+
                         <Button
-                            appearance="primary"
                             type="submit"
                             disabled={processing}
                             style={{ marginLeft: 8 }}
@@ -131,7 +83,7 @@ export default function Login({
                         </Button>
                     </div>
                 </form>
-            </Card>
+            </div>
         </GuestLayout>
     );
 }

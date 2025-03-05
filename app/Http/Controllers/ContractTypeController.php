@@ -14,8 +14,8 @@ class ContractTypeController extends Controller
      */
     public function index(): Response
     {
-        $contractTypes = ContractType::all(); // O paginate si querés: ContractType::paginate(10);
-        return Inertia::render('contract_types/index');
+
+        return Inertia::render('contract_types/index', ['data' => ContractType::all()]);
     }
 
     /**

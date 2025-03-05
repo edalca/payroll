@@ -42,9 +42,9 @@ import { PageProps } from "@/types";
 import { FormBuilder as FormType } from "@/types/form";
 import ${modelName}Form from "@/data/${modelName}.json";
 
-export default function Index({ auth }: PageProps) {
+export default function Index({ auth, data }: PageProps) {
     const form: FormType = ${modelName}Form as FormType;
-    return <ListBuilder form={form} user={auth.user} />;
+    return <ListBuilder form={form} auth={auth} data={data} />;
 }
 `;
 

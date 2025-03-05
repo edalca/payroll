@@ -19,7 +19,8 @@ import {
     PeopleRegular, PeopleFilled,
     DocumentFolderRegular, DocumentFolderFilled,
     DocumentPersonFilled, DocumentPersonRegular,
-    TimerFilled,TimerRegular,
+    TimerFilled, TimerRegular,
+    DocumentCheckmarkRegular, DocumentCheckmarkFilled
 } from "@fluentui/react-icons";
 import { useZiggy } from "@/hooks/useZiggy";
 
@@ -48,6 +49,16 @@ export function LayoutPage({ children }: React.PropsWithChildren) {
                             >
                                 Nominas
                             </SidebarMenuButton>
+                            <SidebarSubMenu>
+                                <SidebarSubMenuItem>
+                                    <SidebarMenuLink
+                                        icon={{ filled: DocumentCheckmarkFilled, regular: DocumentCheckmarkRegular }}
+                                        href={route("contracts")}
+                                    >
+                                        Contratos
+                                    </SidebarMenuLink>
+                                </SidebarSubMenuItem>
+                            </SidebarSubMenu>
                             <SidebarSubMenu>
                                 <SidebarSubMenuItem>
                                     <SidebarMenuLink

@@ -1,0 +1,73 @@
+{
+    "label": "Contratos",
+    "name": "contracts",
+    "fields": [
+        {
+            "fieldname": "code",
+            "label": "Código",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "contract_type_id",
+            "label": "Tipo de Contrato",
+            "type": "Link",
+            "model": "contract_types",
+            "params": {},
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "job_title_id",
+            "label": "Título del Puesto",
+            "type": "Link",
+            "model": "job_titles",
+            "params": {},
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "employee_id",
+            "label": "Empleado",
+            "type": "Link",
+            "model": "employee",
+            "params": {},
+            "required": true,
+            "listView": true
+        },
+        {
+            "type": "Column Break"
+        },
+        {
+            "fieldname": "work_shift_id",
+            "label": "Turno Laboral",
+            "type": "Link",
+            "model": "work_shifts",
+            "params": {},
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "start_date",
+            "label": "Fecha de Inicio",
+            "type": "Date",
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "end_date",
+            "label": "Fecha de Fin",
+            "type": "Date",
+            "required": false,
+            "listView": true
+        },
+        {
+            "fieldname": "salary",
+            "label": "Salario",
+            "type": "Text",
+            "required": true,
+            "listView": true
+        }
+    ]
+}

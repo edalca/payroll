@@ -15,7 +15,9 @@ class EmployeeController extends Controller
     public function index(): Response
     {
         $employees = Employee::all(); // O podrías paginar con Employee::paginate(10);
-        return Inertia::render('employee/index');
+        return Inertia::render('employee/index', [
+            "data" => $employees
+        ]);
     }
 
     /**
@@ -50,7 +52,7 @@ class EmployeeController extends Controller
 
         Employee::create($validatedData);
 
-        return redirect()->route('employees.index')->with('success', 'Empleado creado exitosamente.');
+        return redirect()->route('employee')->with('success', 'Empleado creado exitosamente.');
     }
 
     /**

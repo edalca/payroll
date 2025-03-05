@@ -4,7 +4,7 @@ import { PageProps } from "@/types";
 import { FormBuilder as FormType } from "@/types/form";
 import contract_typesForm from "@/data/contract_types.json";
 
-export default function Index({ auth }: PageProps) {
+export default function Index({ auth, data }: PageProps) {
     const form: FormType = contract_typesForm as FormType;
-    return <ListBuilder form={form} user={auth.user} />;
+    return <ListBuilder form={form} auth={auth} data={data} />;
 }

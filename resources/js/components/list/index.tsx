@@ -1,34 +1,20 @@
-import { User } from "@/types";
+import { PageProps, User } from "@/types";
 import type { FormBuilder } from "@/types/form";
 import { PageBuilder } from "../page";
 import { Button } from "../ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { router } from '@inertiajs/react'
-import axios from "axios";
 import _ from "lodash";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-interface ListBuilderProps {
-    user: User;
+interface ListBuilderProps extends PageProps {
     form: FormBuilder;
 }
-export function ListBuilder({ form, user }: ListBuilderProps) {
-    const [data, setData] = useState([])
-    useEffect(() => {
-        const url = _.join(["listview", form.name], "/");
-        axios
-            .get(url)
-            .then((response) => {
-                setData(response.data);
-            })
-            .catch((error) => {
-                console.error(`Error fetching data from ${url}:`, error);
-            });
-    }, [form.name]);
+export function ListBuilder({ form, auth, data }: ListBuilderProps) {
+
     return (
         <PageBuilder
             title={form.label}
-            user={user}
+            user={auth.user}
             pageActions={
                 <>
                     <Button onClick={() => { router.visit(_.join([form.name, "create"], "/")) }} >Nuevo</Button>

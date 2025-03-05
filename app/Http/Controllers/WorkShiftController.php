@@ -11,7 +11,7 @@ class WorkShiftController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('work_shifts/index');
+        return Inertia::render('work_shifts/index', ["data" => WorkShift::all()]);
     }
 
     public function create(): Response

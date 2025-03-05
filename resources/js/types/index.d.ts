@@ -17,4 +17,5 @@ export type PageProps<
     auth: {
         user: User;
     };
+    data: Record<string, any>[]
 };

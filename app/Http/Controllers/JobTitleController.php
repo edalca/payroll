@@ -11,7 +11,7 @@ class JobTitleController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('job_titles/index');
+        return Inertia::render('job_titles/index', ["data" => JobTitle::all()]);
     }
 
     public function create(): Response
