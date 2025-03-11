@@ -13,6 +13,7 @@ interface FieldRendererProps extends HTMLAttributes<HTMLSelectElement> {
 export const SelectField = ({ field, onChange, value }: FieldRendererProps) => {
     return (
         <Select
+            size="small"
             onChange={onChange} defaultValue={value} name={field.fieldname}>
             {!value && (<option ></option>)}
             {

@@ -15,6 +15,7 @@ export const TimeField = ({ field, onChange, value, className }: FieldRendererPr
         <>
             <Input
                 type="time"
+                size="small"
                 className={cn(className)}
                 onChange={onChange}
                 value={value}

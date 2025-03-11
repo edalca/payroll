@@ -20,6 +20,7 @@ export const DateField = ({ field, onChange, value, className, ...props }: Field
             type="date"
             className={cn(className
             )}
+            size="small"
             placeholder={field.placeholder}
             onChange={onChange}
             value={value} // Aseguramos que sea una cadena vacía si no hay valor

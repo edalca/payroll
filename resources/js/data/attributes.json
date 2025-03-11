@@ -1,0 +1,56 @@
+{
+    "label": "Atributo",
+    "name": "attribute",
+    "fields": [
+        {
+            "type": "Tab Break",
+            "label": "Información General"
+        },
+        {
+            "fieldname": "key",
+            "label": "Clave",
+            "type": "Text",
+            "required": true,
+            "listView": true,
+            "placeholder": "Ejemplo: Languages"
+        },
+        {
+            "fieldname": "type",
+            "label": "Tipo",
+            "type": "Select",
+            "options": [
+                "value",
+                "selection",
+                "multiple"
+            ],
+            "required": true,
+            "listView": true
+        },
+        {
+            "fieldname": "options",
+            "label": "Opciones (JSON)",
+            "type": "Text",
+            "required": false,
+            "placeholder": "Ejemplo: [\"Español\", \"Inglés\"]",
+            "description": "Ingrese un JSON válido si el tipo es 'selection' o 'multiple'."
+        },
+        {
+            "type": "Column Break"
+        },
+        {
+            "fieldname": "table_name",
+            "label": "Nombre de la Tabla",
+            "type": "Text",
+            "required": true,
+            "listView": true,
+            "placeholder": "Ejemplo: employees"
+        },
+        {
+            "fieldname": "is_required",
+            "label": "Es Obligatorio",
+            "type": "Checkbox",
+            "defaultValue": false,
+            "listView": true
+        }
+    ]
+}

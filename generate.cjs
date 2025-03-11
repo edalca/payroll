@@ -10,10 +10,10 @@ const createTemplate = ({ modelName, name }) => `
 import { FormBuilder } from "@/components/form";
 import { PageProps } from "@/types";
 import { FormBuilder as FormType } from "@/types/form";
-import ${modelName}Form from "@/data/${modelName}.json";
+import ${name} from "@/data/${name}.json";
 
 export default function Create({ auth }: PageProps) {
-    const form: FormType = ${modelName}Form as FormType;
+    const form: FormType = ${name} as FormType;
     return <FormBuilder form={form} user={auth.user} action="New" />;
 }
 `;
@@ -23,15 +23,15 @@ const editTemplate = ({ modelName, name }) => `
 import { FormBuilder } from "@/components/form";
 import { PageProps } from "@/types";
 import { FormBuilder as FormType } from "@/types/form";
-import ${modelName}Form from "@/data/${modelName}.json";
+import ${name} from "@/data/${name}.json";
 
 interface EditPageProps extends PageProps {
     ${name}?: any;
 }
 
-export default function Edit({ auth, ${name} }: EditPageProps) {
-    const form: FormType = ${modelName}Form as FormType;
-    return <FormBuilder form={form} user={auth.user} action="Edit"  />;
+export default function Edit({ auth, data }: EditPageProps) {
+    const form: FormType = ${name} as FormType;
+    return <FormBuilder form={form} user={auth.user} action="Edit" initialData={data}  />;
 }
 `;
 
@@ -40,10 +40,10 @@ const indexTemplate = ({ modelName, name }) => `
 import { ListBuilder } from "@/components/list";
 import { PageProps } from "@/types";
 import { FormBuilder as FormType } from "@/types/form";
-import ${modelName}Form from "@/data/${modelName}.json";
+import ${name} from "@/data/${name}.json";
 
 export default function Index({ auth, data }: PageProps) {
-    const form: FormType = ${modelName}Form as FormType;
+    const form: FormType = ${name} as FormType;
     return <ListBuilder form={form} auth={auth} data={data} />;
 }
 `;

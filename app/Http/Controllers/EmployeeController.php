@@ -7,17 +7,15 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class EmployeeController extends Controller
+class EmployeeController extends BaseController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    protected $model = Employee::class;
+    public function index()
     {
-        $employees = Employee::all(); // O podrías paginar con Employee::paginate(10);
-        return Inertia::render('employee/index', [
-            "data" => $employees
-        ]);
+        return Inertia::render('employee/index');
     }
 
     /**
@@ -61,7 +59,7 @@ class EmployeeController extends Controller
     public function edit(Employee $employee): Response
     {
         return Inertia::render('employee/edit', [
-            'employee' => $employee,
+            'data' => $employee,
         ]);
     }
 
@@ -91,4 +89,5 @@ class EmployeeController extends Controller
 
         return redirect()->route('employees.index')->with('success', 'Empleado actualizado exitosamente.');
     }
+
 }

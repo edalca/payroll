@@ -13,32 +13,35 @@ interface FieldRendererProps extends HTMLAttributes<HTMLSelectElement> {
     value?: any;
 }
 export const LinkField = ({ field, onChange, value }: FieldRendererProps) => {
-    const [options, setOptions] = useState<{ label: string; value: string }[]>([]);
+    const [options, setOptions] = useState<Record<string, any>[]>([]);
     const { route } = useZiggy();
-
+    const model = field.model[0]
+    const label = field.model[1]
+    const id = field.model[2] ?? "id"
     useEffect(() => {
-        const url = _.join(["link", field.model], "/");
+        const url = _.join([model, "data"], "/");
         axios
             .get("/" + url)
-            .then((response) => {
-                setOptions(response.data);
+            .then(({ data }) => {
+                setOptions(data.data);
             })
             .catch((error) => {
                 console.error(`Error fetching data from ${url}:`, error);
             });
-    }, [field.model]); // Dependencias: field.model y route
+    }, [model]); // Dependencias: field.model y route
 
     return (
         <Select
+            size="small"
             onChange={onChange} defaultValue={value}
             name={field.fieldname}>
             {!value && (<option ></option>)}
             {options.map((option) => (
                 <option
-                    value={_.toString(option.value)}
-                    key={_.join([option.value, option.label], "_")}
+                    value={_.toString(option[id])}
+                    key={_.join([field.fieldname, option[label]], "_")}
                 >
-                    {option.label}
+                    {option[label]}
                 </option>
             ))}
         </Select>

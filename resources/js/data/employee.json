@@ -63,23 +63,27 @@
             "required": true
         },
         {
-            "type":"Tab Break",
-            "label":"Direccion"
+            "type": "Tab Break",
+            "label": "Direccion"
         },
         {
             "fieldname": "nationality_id",
             "label": "Nacionalidad",
             "type": "Link",
-            "model": "country",
-            "params": {},
+            "model": [
+                "country",
+                "name"
+            ],
             "required": true
         },
         {
             "fieldname": "country_id",
             "label": "Pais de Origen",
             "type": "Link",
-            "model": "country",
-            "params": {},
+            "model": [
+                "country",
+                "name"
+            ],
             "required": true
         },
         {
@@ -96,8 +100,10 @@
             "fieldname": "marital_status_id",
             "label": "Estado Civil",
             "type": "Link",
-            "model": "marital_status",
-            "params": {},
+            "model": [
+                "maritalstatus",
+                "name"
+            ],
             "required": true
         },
         {

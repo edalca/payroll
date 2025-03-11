@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\ContractTypeController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\JobTitleController;
+use App\Http\Controllers\MaritalStatusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkShiftController;
 use App\Http\Controllers\ContractController;
@@ -20,9 +23,10 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(EmployeeController::class)->prefix("employee")->group(function () {
         Route::get("/", "index")->name("employee");
+        Route::get("/data", "data")->name("employee.data");
         Route::get("/create", "create")->name("employee.create");
         Route::post("/store", "store")->name("employee.store");
-        Route::get("/edit", "edit")->name("employee.edit");
+        Route::get("/{employee}", "edit")->name("employee.edit");
         Route::put("/update", "update")->name("employee.update");
     });
 
@@ -56,6 +60,22 @@ Route::middleware('auth')->group(function () {
         Route::post("/store", "store")->name("contracts.store");
         Route::get("/edit", "edit")->name("contracts.edit");
         Route::put("/update", "update")->name("contracts.update");
+    });
+
+    Route::controller(AttributeController::class)->prefix("attributes")->group(function () {
+        Route::get("/", "index")->name("attributes.index"); // Cambié "attributes" a "attributes.index" por convención
+        Route::get("/create", "create")->name("attributes.create");
+        Route::post("/store", "store")->name("attributes.store");
+        Route::get("/edit", "edit")->name("attributes.edit");
+        Route::put("/update", "update")->name("attributes.update");
+    });
+
+    Route::controller(CountryController::class)->prefix("country")->group(function () {
+        Route::get("/data", "data")->name("country.data");
+    });
+
+    Route::controller(MaritalStatusController::class)->prefix("maritalstatus")->group(function () {
+        Route::get("/data", "data")->name("maritalstatus.data");
     });
 
 

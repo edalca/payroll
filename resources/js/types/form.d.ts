@@ -15,7 +15,7 @@ interface Field extends ListView {
 }
 export interface TextField
     extends Field,
-        InputHTMLAttributes<HTMLInputElement> {
+    InputHTMLAttributes<HTMLInputElement> {
     type: "Text" | "Email" | "Password";
     defaultValue?: string;
     min?: number;
@@ -23,7 +23,7 @@ export interface TextField
 }
 export interface TimeField
     extends Field,
-        InputHTMLAttributes<HTMLInputElement> {
+    InputHTMLAttributes<HTMLInputElement> {
     type: "Time";
     defaultValue?: string;
 }
@@ -36,10 +36,46 @@ export interface DateField extends Field {
     type: "Date";
     defaultValue?: Date;
 }
+interface ComparativeFilter {
+    field: string; // Campo a filtrar, como "edad" o "precio"
+    operator: '=' | '<>' | '<' | '>' | '<=' | '>='; // Operadores soportados
+    value: string | number | Date; // Valor a comparar
+}
+interface LikeFilter {
+    field: string; // Campo a filtrar, como "nombre"
+    operator: "like"
+    pattern: "start" | "end" | "contains"; // Patrón a buscar, como "%juan%"
+    value: string
+}
+interface BetweenFilter {
+    field: string; // Campo a filtrar, como "precio"
+    operator: "between"
+    startValue: number | string | Date; // Valor inicial del rango
+    endValue: number | string | Date; // Valor final del rango
+}
+interface InFilter {
+    field: string; // Campo a filtrar, como "categoría"
+    operator: "in"
+    values: Array<string | number | Date>; // Lista de valores
+}
+interface NullFilter {
+    field: string; // Campo a filtrar, como "fecha"
+    operator: "null"
+    condition: 'IS NULL' | 'IS NOT NULL'; // Condición para nulos
+}
+interface NotNullFilter {
+    field: string; // Campo a filtrar, como "fecha"
+    operator: "not null"
+
+}
+type Filter = ComparativeFilter | LikeFilter | BetweenFilter | InFilter | NullFilter | NotNullFilter;
+
+
 export interface LinkField extends Field {
     type: "Link";
-    model: string;
-    params: Record<string, any>;
+    model: [name: string, label: string, id?: string];
+    filters?: Filter[]
+    orFilters?: Filter[]
     defaultValue?: string;
 }
 
@@ -96,3 +132,4 @@ export interface SectionField extends Field {
 export interface TabField extends Field {
     children: SectionField[];
 }
+

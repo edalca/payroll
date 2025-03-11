@@ -17,6 +17,7 @@ export const TextField = ({ field, onChange, value, className }: FieldRendererPr
                 type={field.type.toLowerCase() as 'text' | 'email' | 'password'}
                 className={cn(className
                 )}
+                size="small"
                 onChange={onChange}
                 value={value}
                 name={field.fieldname}
